@@ -3,15 +3,14 @@
 
 {% block body %}
 
-  <h1>Recipe.html</h1>
+  <h1>レシピ一覧</h1>
 
   {% for recipe in recipe_list %}
     <div class = "media">
       <img src = "{% static 'images/01.jpeg' %}" class = "align-self-center mr-3" alt = "..." width = "120">
       <div class = "media-body">
         <h5 class = "mt-0">{{recipe.title}}</h5>
-        <p>{{recipe.content}}</p>
-        <p class = "mb=0">{{recipe.content}}</p>
+        <p>{{recipe.description}}</p>
       </div>
     </div>
     {% if not forloop.last %}
