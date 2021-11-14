@@ -34,6 +34,10 @@ class RecipeDeleteView(DeleteView):
   model = Recipe
   success_url = reverse_lazy("recipe:index")
 
+  def delete(self, request, *args, **kwargs):
+    messages.success(self.request, "削除しました")
+    return super().delete(request, *args, **kwargs)
+
 def get_success_url(self):
   pk = self.kwargs.get("pk")
   return reverse("recipe:detail", kwargs={"pk":pk})
