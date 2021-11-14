@@ -4,6 +4,8 @@ from .models import Recipe
 
 from django.urls import reverse, reverse_lazy
 
+from django.contrib import messages
+
 class RecipeListView(ListView):
   model = Recipe
 
@@ -27,3 +29,11 @@ class RecipeDeleteView(DeleteView):
 def get_success_url(self):
   pk = self.kwargs.get("pk")
   return reverse("recipe:detail", kwargs={"pk":pk})
+
+def form_valid(self,form):
+  messages.success(self.request, "更新しました")
+  return super().form_valid(form)
+
+def form_invalid(self, form):
+  messages.error(self.request, "更新できませんでした")
+  return super().form_invalid(form)
