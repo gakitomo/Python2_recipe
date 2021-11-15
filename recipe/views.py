@@ -49,15 +49,3 @@ class RecipeDeleteView(DeleteView):
   def delete(self, request, *args, **kwargs):
     messages.success(self.request, "削除しました")
     return super().delete(request, *args, **kwargs)
-
-def get_success_url(self):
-  pk = self.kwargs.get("pk")
-  return reverse("recipe:detail", kwargs={"pk":pk})
-
-def form_valid(self,form):
-  messages.success(self.request, "更新しました")
-  return super().form_valid(form)
-
-def form_invalid(self, form):
-  messages.error(self.request, "更新できませんでした")
-  return super().form_invalid(form)
