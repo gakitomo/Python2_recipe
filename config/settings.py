@@ -132,4 +132,7 @@ STATICFILES_DIRS = [
     BASE_DIR/Path("assets")
 ]
 
+MEDIA_ROOT = BASE_DIR / Path('media')
+MEDIA_URL = '/media/'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
