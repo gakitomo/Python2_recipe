@@ -11,7 +11,7 @@ class RecipeListView(ListView):
 
 class RecipeCreateView(CreateView):
   model = Recipe
-  fields = ["title", "content", "description"]
+  fields = ["title", "content", "description", "image",]
   success_url = reverse_lazy("recipe:index")
 
   def form_valid(self, form):
@@ -27,7 +27,7 @@ class RecipeDetailView(DetailView):
 
 class RecipeUpdateView(UpdateView):
   model = Recipe
-  fields = ["title", "content", "description"]
+  fields = ["title", "content", "description", "image",]
   success_url = "/"
 
   def get_success_url(self):
