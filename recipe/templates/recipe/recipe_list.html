@@ -10,7 +10,7 @@
       {% if recipe.image %}
       <img src="{{ recipe.image.url }}" class="align-self-center mr-3" alt="..." width="120">
       {% else %}
-      <img src="{% static 'images/01.jpg' %}" class="align-self-center mr-3" alt="..." width="120">
+      <img src="{% static 'images/01.jpeg' %}" class="align-self-center mr-3" alt="..." width="120">
       {% endif %}
       <div class = "media-body">
         <a href = "{% url 'recipe:detail' recipe.id %}">
