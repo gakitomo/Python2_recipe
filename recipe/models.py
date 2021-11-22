@@ -15,9 +15,9 @@ class Recipe(models.Model):
 
     detail_main = ImageSpecField(
         source = "image",
-        processors = [ResizeToFill(640,480)],
+        processors = [ResizeToFill(640, 480)],
         format = "jpeg",
-        options = {"quality":80}
+        options = {"quality": 80}
     )
 
     class Meta:
