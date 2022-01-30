@@ -14,7 +14,7 @@
           <th>{{ recipe.title }}</th>
           <th>
             <a href="{% url 'recipe:detail' recipe.id %}" class="btn btn-primary">詳細</a>
-            <a href="{% url 'recipe:update' recipe.id %}" class="btn btn-success">編集</a>
+            <a href="{% url 'userpage:recipe:update' recipe.id %}" class="btn btn-success">編集</a>
           </th>
         </tr>
         {% endfor %}
