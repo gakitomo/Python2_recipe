@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'recipe',
     'comment',
+    'userpage',
     
     'crispy_forms',
     'imagekit',
