@@ -9,5 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('recipe/', include("recipe.urls", namespace = "recipe")),
     path('comment/', include("comment.urls", namespace = "comment")),
-    path('', IndexTemplateView.as_view(), name="index"),
+    path('userpage/',include("userpage.urls", namespace = "userpage")),
+
+    path('', IndexTemplateView.as_view(), name = "index"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
