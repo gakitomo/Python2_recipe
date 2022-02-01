@@ -7,7 +7,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from recipe.models import Recipe
 from recipe.forms import RecipeForm
 
-class UserpageTemplateView(LoginRequiredMixin, TemplateView):
+class UserpageMixin(LoginRequiredMixin):
+  login_url = reverse_lazy("login")
+
+class UserpageTemplateView(UserpageMixin, TemplateView):
   template_name = "userpage/index.html"
 
   def get_context_data(self, **kwargs):
@@ -20,8 +23,7 @@ class UserpageTemplateView(LoginRequiredMixin, TemplateView):
 
     return context
 
-class RecipeCreateView(LoginRequiredMixin, CreateView):
-  login_url = reverse_lazy("login")
+class RecipeCreateView(UserpageMixin, CreateView):
   model = Recipe
   form_class = RecipeForm
   success_url = reverse_lazy("recipe:index")
@@ -46,8 +48,7 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
     return super().form_invalid(form)
 
 
-class RecipeUpdateView(LoginRequiredMixin, UpdateView):
-  login_url = reverse_lazy("login")
+class RecipeUpdateView(UserpageMixin, UpdateView):
   model = Recipe
   fields = ["title", "content", "description", "image"]
 
@@ -64,8 +65,7 @@ class RecipeUpdateView(LoginRequiredMixin, UpdateView):
     return super().form_invalid(form)
 
 
-class RecipeDeleteView(LoginRequiredMixin, DeleteView):
-  login_url = reverse_lazy("login")
+class RecipeDeleteView(UserpageMixin, DeleteView):
   model = Recipe
   success_url = reverse_lazy("recipe:index")
 
